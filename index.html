@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MostGroup株式会社は、インフルエンサーマネジメント、アパレル、SNSマーケティングなど多彩な事業を展開する総合エンターテイメント企業です。">
+    <meta name="keywords" content="MostGroup, モーストグループ, エンターテイメント企業, インフルエンサー事務所, EPIX, Apricot Land, SNSマーケティング">
+    <title>MostGroup株式会社 | 感動を創造する総合エンターテイメント企業</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #c39a6b;
+            --text-color: #333333;
+            --transition-speed: 0.5s;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 6rem 3rem;
+            position: relative;
+        }
+        
+        .navbar {
+            transition: background-color var(--transition-speed);
+            z-index: 100;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+        }
+        
+        .menu-link {
+            position: relative;
+            padding: 0.5rem 0;
+            margin: 0 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all var(--transition-speed);
+        }
+        
+        .menu-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--secondary-color);
+            transition: width var(--transition-speed);
+        }
+        
+        .menu-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://mostgroup.jp/wp-content/uploads/2022/04/会社概要画像-scaled.jpeg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards 0.5s;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards 0.8s;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 1.5s, bounce 2s infinite 1.5s;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+        
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all var(--transition-speed);
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+        
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-speed);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .service-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .ceo-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://mostgroup.jp/wp-content/uploads/2022/11/オフィス写真-1024x683.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .ceo-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .ceo-message {
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+        
+        .ceo-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ceo-title {
+            font-size: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .recruit-section {
+            background-color: #0a0a0a;
+        }
+        
+        .recruit-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-speed);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--accent-color);
+            background-color: transparent;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline-light {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn-outline-light:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: #050505;
+            padding: 4rem 0;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+            transition: all var(--transition-speed);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all var(--transition-speed);
+        }
+        
+        .footer-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 4rem 2rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-text {
+                font-size: 1rem;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+            }
+            
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.95);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 200;
+                transform: translateX(100%);
+                transition: transform var(--transition-speed);
+            }
+            
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+            
+            .mobile-menu .menu-link {
+                margin: 1rem 0;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* For PDF export */
+        @media print {
+            html, body {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                display: block;
+            }
+            
+            .navbar {
+                position: relative !important;
+                background-color: #000 !important;
+            }
+            
+            .scroll-down {
+                display: none;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: 600px;
+            }
+            
+            .service-card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar fixed top-0 left-0 w-full py-4 px-6 z-50" id="navbar">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="logo text-white">MOST<span class="text-accent-color">GROUP</span></a>
+            
+            <nav class="hidden md:block">
+                <ul class="flex">
+                    <li><a href="#about" class="menu-link">About</a></li>
+                    <li><a href="#services" class="menu-link">Services</a></li>
+                    <li><a href="#ceo" class="menu-link">CEO</a></li>
+                    <li><a href="#recruit" class="menu-link">Recruit</a></li>
+                    <li><a href="#contact" class="menu-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="menu-toggle md:hidden focus:outline-none" id="menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            
+            <div class="mobile-menu md:hidden" id="mobile-menu">
+                <button class="close-menu absolute top-6 right-6 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <ul class="flex flex-col items-center">
+                    <li><a href="#about" class="menu-link">About</a></li>
+                    <li><a href="#services" class="menu-link">Services</a></li>
+                    <li><a href="#ceo" class="menu-link">CEO</a></li>
+                    <li><a href="#recruit" class="menu-link">Recruit</a></li>
+                    <li><a href="#contact" class="menu-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Open the door of your dreams.</h1>
+                <p class="hero-subtitle">一度きりの人生、主役はいつだって自分自身だから</p>
+                <a href="#about" class="btn btn-outline-light mt-6">DISCOVER</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </a>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="about-text">
+                        仕事や学校で見せる強い自分も、<br>
+                        友人や恋人の前でしか見せない弱い自分も、<br>
+                        いつだって最高の自分でいたい。
+                    </p>
+                    <p class="about-text">
+                        少しでも自分に自信が持てるだけで、<br>
+                        見える世界が変わって毎日が特別な日になる。
+                    </p>
+                    <p class="about-text">
+                        私たちMost Groupは<br>
+                        全ての事業を通じて、人々の日常を<br>
+                        心が躍り、胸が高鳴るような感動で彩りたい。
+                    </p>
+                    <p class="about-text">
+                        そして、その感動の一つ一つが<br>
+                        人生をも大きく変える原動力となることを信じて、<br>
+                        私たちは挑戦を続けます。
+                    </p>
+                </div>
+                <div class="md:w-1/2 pl-0 md:pl-10" data-aos="fade-left">
+                    <div class="relative overflow-hidden rounded-lg shadow-2xl">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2022/04/会社概要画像-scaled.jpeg" alt="MostGroup オフィス" class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-bold">MostGroup Inc.</h3>
+                            <p class="text-sm mt-2">〒108-6028 東京都港区港南2丁目15-1<br>品川インターシティA棟28階</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="section bg-gray-900" id="services">
+        <div class="container mx-auto">
+            <h2 class="section-title text-center mx-auto block" data-aos="fade-up">Our Services</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Most Groupはあらゆる事業を通じて、<br>あなたのライフスタイルを豊かにします。
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: EPIX -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2022/09/EPIX-1024x768.png" alt="EPIX">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">EPIX</h3>
+                        <p class="service-description">
+                            SNS総フォロワー数約1.7億名以上、企業PR支援実績数20,000件以上！『SNS×エンターテイメント』の可能性を追求する日本最大級のインフルエンサー事務所です。企業のSNSマーケティングやプロモーション支援も行っております。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 2: Apricot Land -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-image">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2022/04/Apricot-Land宣材写真-1.png" alt="Apricot Land">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Apricot Land</h3>
+                        <p class="service-description">
+                            「オトナかわいい」をテーマとしたレディースアパレルブランドを展開しております。ドラマやその他テレビ番組、映画、各種雑誌、国際イベント等への衣装提供も多数行っております。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 3: Apricot Land for Business -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-image">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2022/09/Apricot-Land-for-Business-1024x768.png" alt="Apricot Land for Business">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Apricot Land for Business</h3>
+                        <p class="service-description">
+                            法人様向けにアパレルアイテムやアクセサリー、インテリアアイテム等のデザイン・企画を行っております。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 4: SNS / Web広告 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-image">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2022/04/女性（SNS）-scaled.jpeg" alt="SNS / Web広告">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">SNS / Web広告</h3>
+                        <p class="service-description">
+                            クライアント様のSNS広告やWEB広告等の製作・運用を行っております。最新のデジタルマーケティングのトレンドを取り入れた効果的な広告戦略を提案します。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 5: Stylee -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-image">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2022/05/Stylee訂正版-1024x777.png" alt="Stylee">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Stylee</h3>
+                        <p class="service-description">
+                            人気美容師やフリーランス美容師に特化した美容師検索サービスを展開しております。お客様が得意なスタイルや性格、趣味など様々な基準から美容師を検索し、直接予約できる日本初のサービスです。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 6: Social Activities -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-image">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2023/08/NOWAR-1024x777.png" alt="Social Activities">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Social Activities</h3>
+                        <p class="service-description">
+                            ウクライナ人道支援のための寄付活動や、ファッションやエンタメを通して新興国の子どもたちの未来を応援する慈善事業を行っております。社会貢献も私たちの重要な使命の一つです。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CEO Message Section -->
+    <section class="section ceo-section" id="ceo">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-2/5 mb-8 md:mb-0" data-aos="fade-right">
+                    <div class="ceo-image">
+                        <img src="https://mostgroup.jp/wp-content/uploads/2022/11/11_5追加最新版社長写真-1024x789.jpg" alt="長尾真之介 CEO" class="w-full h-auto">
+                    </div>
+                </div>
+                <div class="md:w-3/5 md:pl-12" data-aos="fade-left">
+                    <h2 class="section-title">CEO Message</h2>
+                    <div class="ceo-message">
+                        <p class="mb-4">
+                            私たちMost Groupは、「感動創造企業」として、あらゆる事業を通じて人々の生活に感動と喜びをもたらすことを使命としています。
+                        </p>
+                        <p class="mb-4">
+                            インフルエンサーマネジメント、アパレル、SNSマーケティング、美容サービスなど、多岐にわたる事業を展開していますが、その根底にあるのは「人々の可能性を最大限に引き出したい」という想いです。
+                        </p>
+                        <p class="mb-6">
+                            私たちと関わるすべての方が、自分自身の可能性に気づき、一歩踏み出す勇気を持っていただけるような企業であり続けたいと考えています。「Open the door of your dreams.」というビジョンのもと、これからも挑戦を続けてまいります。
+                        </p>
+                    </div>
+                    <div>
+                        <p class="ceo-name">長尾 真之介</p>
+                        <p class="ceo-title">代表取締役社長 / CEO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recruit Section -->
+    <section class="section recruit-section" id="recruit">
+        <div class="container mx-auto">
+            <h2 class="section-title text-center mx-auto block" data-aos="fade-up">Recruit</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Most Groupではビジョンを共有し、<br>共に社会に貢献できるメンバーを募集しています。
+            </p>
+            
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mt-8 md:mt-0 md:pr-12" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-4">一緒に"感動"を創造しませんか？</h3>
+                    <p class="mb-6 text-gray-300">
+                        私たちMost Groupは、「感動創造企業」として常に新しいことへの挑戦を続けています。エンターテインメント、ファッション、デジタルマーケティングなど、様々な分野のプロフェッショナルが集まり、互いの知見を活かしながら成長しています。
+                    </p>
+                    <p class="mb-6 text-gray-300">
+                        何事にも積極的に取り組み、自らの可能性を広げたいという方、私たちと一緒に働きませんか？経験よりも、挑戦する意欲を大切にしています。
+                    </p>
+                    <a href="https://mostgroup.jp/recruit/" class="btn mt-4" target="_blank" rel="noopener">採用情報を見る</a>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <div class="recruit-image">
+                        <img src="./images/recruite.jpeg" alt="採用情報" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container mx-auto">
+            <h2 class="section-title text-center mx-auto block" data-aos="fade-up">Contact Us</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                お問い合わせやご相談は、こちらのフォームからお気軽にご連絡ください。
+            </p>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="mb-8 md:mb-0 md:pr-8" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h3 class="text-xl font-bold mb-6">Most Group, Inc.</h3>
+                        <div class="mb-6">
+                            <p class="text-gray-300 mb-2"><i class="fas fa-map-marker-alt mr-3 text-accent-color"></i> 〒108-6028</p>
+                            <p class="text-gray-300 ml-7">東京都港区港南2丁目15-1</p>
+                            <p class="text-gray-300 ml-7">品川インターシティA棟28階</p>
+                        </div>
+                        <div class="mb-6">
+                            <p class="text-gray-300 mb-2"><i class="fas fa-phone mr-3 text-accent-color"></i> 03-6717-2741</p>
+                            <p class="text-gray-300 mb-2"><i class="fas fa-envelope mr-3 text-accent-color"></i> contact@mostgroup.jp</p>
+                        </div>
+                        <div class="social-icons mt-8">
+                            <a href="https://twitter.com/" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <form class="contact-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" placeholder="お名前" class="form-input" required>
+                            </div>
+                            <div>
+                                <input type="email" placeholder="メールアドレス" class="form-input" required>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="件名" class="form-input" required>
+                        </div>
+                        <div>
+                            <textarea placeholder="メッセージ" class="form-input form-textarea" required></textarea>
+                        </div>
+                        <button type="submit" class="btn w-full">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <a href="#" class="logo text-white text-2xl mb-6 inline-block">MOST<span class="text-accent-color">GROUP</span></a>
+                    <p class="text-gray-400 mb-6">
+                        私たちMost Groupは全ての事業を通じて、人々の日常を心が躍り、胸が高鳴るような感動で彩りたい。そして、その感動の一つ一つが人生をも大きく変える原動力となることを信じて、私たちは挑戦を続けます。
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul>
+                        <li class="mb-4"><a href="#about" class="footer-link">About Us</a></li>
+                        <li class="mb-4"><a href="#services" class="footer-link">Services</a></li>
+                        <li class="mb-4"><a href="#ceo" class="footer-link">CEO Message</a></li>
+                        <li class="mb-4"><a href="#recruit" class="footer-link">Recruit</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Services</h4>
+                    <ul>
+                        <li class="mb-4"><a href="#" class="footer-link">EPIX</a></li>
+                        <li class="mb-4"><a href="#" class="footer-link">Apricot Land</a></li>
+                        <li class="mb-4"><a href="#" class="footer-link">Apricot Land for Business</a></li>
+                        <li class="mb-4"><a href="#" class="footer-link">SNS / Web広告</a></li>
+                        <li><a href="#" class="footer-link">Stylee</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <p class="copyright">
+                    &copy; 2023 Most Group, Inc. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.querySelector('.close-menu');
+        const menuLinks = document.querySelectorAll('#mobile-menu .menu-link');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+        
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
